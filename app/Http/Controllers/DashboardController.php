@@ -66,4 +66,34 @@ class DashboardController extends Controller
 
         return view('report', compact('title'));
     }
+
+    public function printFieldSheet()
+    {
+        $columns = ['TDN No','Name of Owner', 'Location of Property', 'Status'];
+        $options = ['Tracking No.', 'TDN No', 'Name of Owner'];
+        $title = 'Field sheet printing';
+
+        $data = [
+            ['TDN No' => '12345', 'Name of Owner' => 'John Doe', 'Location of Property' => 'Location 1', 'Status' => 'Active'],
+            ['TDN No' => '67890', 'Name of Owner' => 'Jane Doe', 'Location of Property' => 'Location 2', 'Status' => 'Inactive'],
+            ['TDN No' => '11223', 'Name of Owner' => 'John Smith', 'Location of Property' => 'Location 3', 'Status' => 'Pending'],
+        ];
+
+        return view('search', compact('columns', 'data', 'options', 'title'));
+    }
+
+    public function printTaxDec()
+    {
+        $columns = ['TDN No','Name of Owner', 'Location of Property', 'Status'];
+        $options = ['Tracking No.', 'TDN No', 'Name of Owner'];
+        $title = 'Tax declaration printing';
+
+        $data = [
+            ['TDN No' => '12345', 'Name of Owner' => 'John Doe', 'Location of Property' => 'Location 1', 'Status' => 'Active'],
+            ['TDN No' => '67890', 'Name of Owner' => 'Jane Doe', 'Location of Property' => 'Location 2', 'Status' => 'Inactive'],
+            ['TDN No' => '11223', 'Name of Owner' => 'John Smith', 'Location of Property' => 'Location 3', 'Status' => 'Pending'],
+        ];
+
+        return view('search', compact('columns', 'data', 'options', 'title'));
+    }
 }

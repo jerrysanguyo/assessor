@@ -25,6 +25,12 @@ Route::get('/transaction', [DashboardController::class, 'transaction'])
 Route::get('/report', [DashboardController::class, 'report'])
     ->name('report');
 
+Route::get('/field_sheet', [DashboardController::class, 'printFieldSheet'])
+    ->name('fieldSheet');
+
+Route::get('/tax_dec', [DashboardController::class, 'printTaxDec'])
+    ->name('taxDec');
+
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');

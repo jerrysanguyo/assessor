@@ -90,6 +90,11 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        @if (Request::is('field_sheet') || Request::is('tax_dec')) 
+                            <div class="float-right mt-3">
+                                <button class="btn btn-danger"><i class="fa-solid fa-print"></i> Print all</button>
+                            </div>
+                        @endif
                     </div>
                 </form>
             </div>
