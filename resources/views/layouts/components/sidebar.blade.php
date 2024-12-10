@@ -59,7 +59,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="#" class="nav-link" data-toggle="modal" data-target="#messageModal">
                         <i class="nav-icon fas fa-envelope"></i>
                         <p>Messages</p>
                     </a>
@@ -100,3 +100,4 @@
 @include('component.modal.printing')
 @include('component.modal.report')
 @include('component.modal.tracking')
+@include('component.modal.message')
