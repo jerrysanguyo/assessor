@@ -22,6 +22,9 @@ Route::get('/pin', [DashboardController::class, 'pin'])
 Route::get('/transaction', [DashboardController::class, 'transaction'])
     ->name('transaction');
 
+Route::get('/report', [DashboardController::class, 'report'])
+    ->name('report');
+
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');

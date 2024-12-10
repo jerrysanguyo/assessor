@@ -59,4 +59,11 @@ class DashboardController extends Controller
 
         return view('search', compact('columns', 'data', 'options', 'title'));
     }
+
+    public function report()
+    {
+        $title = 'Report';
+
+        return view('report', compact('title'));
+    }
 }

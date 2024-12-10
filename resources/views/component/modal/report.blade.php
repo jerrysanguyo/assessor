@@ -12,13 +12,17 @@
                 <div class="row">
                     <!-- Button 1 -->
                     <div class="col-sm-12 d-flex justify-content-center align-items-center mb-2">
-                        <button type="button" class="btn btn-danger w-100">QRRPA</button>
+                        <a href="{{ route('report') }}">
+                            <button type="button" class="btn btn-danger w-100">QRRPA</button>
+                        </a>
                     </div>
                 </div>
                 <div class="row">
                     <!-- Button 2 -->
                     <div class="col-sm-12 d-flex justify-content-center align-items-center">
-                        <button type="button" class="btn btn-danger w-100">Assessment Map Roll</button>
+                        <a href="{{ route('report') }}">
+                            <button type="button" class="btn btn-danger w-100">Assessment Map Roll</button>
+                        </a>
                     </div>
                 </div>
             </div>
