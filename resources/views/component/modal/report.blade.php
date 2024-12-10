@@ -11,7 +11,7 @@
             <div class="modal-body">
                 <div class="row">
                     <!-- Button 1 -->
-                    <div class="col-sm-12 d-flex justify-content-center align-items-center mb-2">
+                    <div class="col-sm-12 align-items-center mb-2">
                         <a href="{{ route('report') }}">
                             <button type="button" class="btn btn-danger w-100">QRRPA</button>
                         </a>
@@ -19,7 +19,7 @@
                 </div>
                 <div class="row">
                     <!-- Button 2 -->
-                    <div class="col-sm-12 d-flex justify-content-center align-items-center">
+                    <div class="col-sm-12 align-items-center">
                         <a href="{{ route('report') }}">
                             <button type="button" class="btn btn-danger w-100">Assessment Map Roll</button>
                         </a>

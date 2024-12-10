@@ -95,6 +95,11 @@
                                 <button class="btn btn-danger"><i class="fa-solid fa-print"></i> Print all</button>
                             </div>
                         @endif
+                        @if (Request::is('validation')) 
+                            <div class="float-right mt-3">
+                                <button class="btn btn-danger"><i class="fa-solid fa-check"></i> Validate all</button>
+                            </div>
+                        @endif
                     </div>
                 </form>
             </div>

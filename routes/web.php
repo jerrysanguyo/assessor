@@ -31,6 +31,9 @@ Route::get('/field_sheet', [DashboardController::class, 'printFieldSheet'])
 Route::get('/tax_dec', [DashboardController::class, 'printTaxDec'])
     ->name('taxDec');
 
+Route::get('/validation', [DashboardController::class, 'validation'])
+    ->name('validation');
+
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
