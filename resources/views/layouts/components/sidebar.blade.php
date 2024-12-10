@@ -40,26 +40,12 @@
                         <p>Tracking</p>
                     </a>
                 </li>
-                <!-- <li class="nav-item">
-                    <a href="#" class="nav-link">
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-toggle="modal" data-target="#reportModal">
                         <i class="nav-icon fas fa-file-alt"></i>
-                        <p>
-                            Report
-                        </p>
+                        <p>Report</p>
                     </a>
-                    <ul class="nav nav-treeview" style="display:none;">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <p>QRRPA</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <p>Assessment map roll</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li> -->
+                </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link" data-toggle="modal" data-target="#printingModal">
                         <i class="nav-icon fas fa-print"></i>
@@ -79,9 +65,7 @@
                     </a>
                 </li>
             </ul>
-
             <hr class="mt-4 mb-3">
-
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-header">Administrator Menu</li>
                 <li class="nav-item">
@@ -112,3 +96,7 @@
         </nav>
     </div>
 </aside>
+
+@include('component.modal.printing')
+@include('component.modal.report')
+@include('component.modal.tracking')
