@@ -17,7 +17,7 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
-                    <a href="{{ route('search') }}" class="nav-link active">
+                    <a href="{{ route('search') }}" class="nav-link">
                         <i class="nav-icon fas fa-search fa-fw"></i>
                         <p>Search</p>
                     </a>
@@ -40,12 +40,26 @@
                         <p>Tracking</p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link" data-toggle="modal" data-target="#reportModal">
+                <!-- <li class="nav-item">
+                    <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-file-alt"></i>
-                        <p>Report</p>
+                        <p>
+                            Report
+                        </p>
                     </a>
-                </li>
+                    <ul class="nav nav-treeview" style="display:none;">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <p>QRRPA</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <p>Assessment map roll</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li> -->
                 <li class="nav-item">
                     <a href="#" class="nav-link" data-toggle="modal" data-target="#printingModal">
                         <i class="nav-icon fas fa-print"></i>

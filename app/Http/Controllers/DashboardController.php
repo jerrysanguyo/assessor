@@ -8,13 +8,15 @@ class DashboardController extends Controller
 {
     public function dashboard()
     {
-        return view('dashboard');
+        $title = 'Dashboard';
+        return view('dashboard', compact('title'));
     }
 
     public function search()
     {
         $columns = ['TDN No', 'PIN', 'Name of Owner', 'Location of Property', 'Status'];
         $options = ['TDN No', 'PIN', 'Name of Owner', 'Location of Property', 'Status'];
+        $title = 'Search';
 
         $data = [
             ['TDN No' => '12345', 'PIN' => '67890', 'Name of Owner' => 'John Doe', 'Location of Property' => 'Location 1', 'Status' => 'Active'],
@@ -22,13 +24,14 @@ class DashboardController extends Controller
             ['TDN No' => '11223', 'PIN' => '44556', 'Name of Owner' => 'John Smith', 'Location of Property' => 'Location 3', 'Status' => 'Pending'],
         ];
 
-        return view('search', compact('columns', 'data', 'options'));
+        return view('search', compact('columns', 'data', 'options', 'title'));
     }
 
     public function pin() 
     {
         $columns = ['No.', 'PIN', 'Location', 'Lot No.', 'Blk No.', 'Survey No.', 'Kind'];
         $options = ['No.', 'PIN', 'Location', 'Lot No.', 'Blk No.', 'Survey No.', 'Kind'];
+        $title = 'PIN';
 
         $data = [
             ['No.' => '1', 'PIN' => '12345', 'Location' => 'Location 1', 'Lot No.' => '10', 'Blk No.' => '5', 'Survey No.' => 'SURV123', 'Kind' => 'Residential'],
@@ -37,13 +40,14 @@ class DashboardController extends Controller
             ['No.' => '4', 'PIN' => '99887', 'Location' => 'Location 4', 'Lot No.' => '40', 'Blk No.' => '8', 'Survey No.' => 'SURV321', 'Kind' => 'Industrial'],
         ];
 
-        return view('search', compact('columns', 'data', 'options'));
+        return view('search', compact('columns', 'data', 'options', 'title'));
     }
 
     public function transaction()
     {
         $columns = ['Tracking No.', 'Transaction', 'Process by'];
         $options = ['Tracking No.', 'Transaction', 'Process by'];
+        $title = 'Transaction';
 
         $data = [
             ['Tracking No.' => 'TRK001', 'Transaction' => 'Payment', 'Process by' => 'John Doe'],
@@ -53,6 +57,6 @@ class DashboardController extends Controller
             ['Tracking No.' => 'TRK005', 'Transaction' => 'Disbursement', 'Process by' => 'Michael Johnson'],
         ];
 
-        return view('search', compact('columns', 'data', 'options'));
+        return view('search', compact('columns', 'data', 'options', 'title'));
     }
 }
