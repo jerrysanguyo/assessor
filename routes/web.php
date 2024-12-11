@@ -39,6 +39,12 @@ Route::get('/message', [DashboardController::class, 'message'])
 
 Route::get('/account', [DashboardController::class, 'account'])
     ->name('account');
+    
+Route::get('/barangay', [DashboardController::class, 'barangay'])
+    ->name('barangay');
+
+Route::get('/transactionSetup', [DashboardController::class, 'transactionSetup'])
+    ->name('transactionSetup');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

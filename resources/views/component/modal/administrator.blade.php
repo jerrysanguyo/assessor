@@ -18,14 +18,14 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-12 align-items-center mb-2">
-                        <a href="{{ route('taxDec') }}">
+                        <a href="{{ route('barangay') }}">
                             <button type="button" class="btn btn-danger w-100">Barangay setup</button>
                         </a>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-12 align-items-center mb-2">
-                        <a href="{{ route('taxDec') }}">
+                        <a href="{{ route('transactionSetup') }}">
                             <button type="button" class="btn btn-danger w-100">Transaction setup</button>
                         </a>
                     </div>

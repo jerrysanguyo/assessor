@@ -125,4 +125,34 @@ class DashboardController extends Controller
         
         return view('component.cms.account', compact('title', 'columns', 'data'));
     }
+
+    public function barangay()
+    {
+        $columns = ['Barangay', 'District', 'Code', 'Remarks'];
+        $title = 'Barangay setup';
+        $options = ['Barangay', 'District', 'Code'];
+
+        $data = [
+            ['Barangay' => 'Bagong Tanyag',             'District' => '02', 'Code' => '002','Remarks' => 'Old'],
+            ['Barangay' => 'Bagong Tanyag (proper)',    'District' => '02', 'Code' => '020', 'Remarks' => 'Old'],
+            ['Barangay' => 'Bagumbayan',                'District' => '01', 'Code' => '001', 'Remarks' => 'Old'],
+        ];
+
+        return view('search', compact( 'columns', 'title', 'data', 'options'));
+    }
+
+    public function transactionSetup()
+    {
+        $columns = ['Transaction'];
+        $title = 'Transaction setup';
+        $options = ['Transaction'];
+
+        $data = [
+            ['Transaction' => 'CHANGE OF BARANGAY AND CHANGE OF STATUS'],
+            ['Transaction' => 'Consolidation'],
+            ['Transaction' => 'House Re-assessment/Renovation'],
+        ];
+
+        return view('search', compact( 'columns', 'title', 'data', 'options'));
+    }
 }
