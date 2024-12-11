@@ -61,20 +61,23 @@
                                         </span>
                                     @enderror
                                 </div>
-
-                                <div class="row mb-0 align-items-center">
-                                    <div class="col-lg-8 col-md-12 col-sm-12 d-flex justify-content-center justify-content-md-start">
-                                        <p class="fs-6 mb-lg-0">
-                                            <a href="#" class="link-offset-2 link-underline link-underline-opacity-0">I Forgot my password</a>
-                                        </p>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12 col-sm-12 d-flex justify-content-center justify-content-md-end">
-                                        <button type="submit" class="btn btn-danger">
-                                            {{ __('Login') }}
-                                        </button>
-                                    </div>
-                                </div>
                             </form>
+                            <!-- to be insert inside the form -->
+                            <div class="row mb-0 align-items-center">
+                                <div class="col-lg-8 col-md-12 col-sm-12 d-flex justify-content-center justify-content-md-start">
+                                    <p class="fs-6 mb-lg-0">
+                                        <a href="#" class="link-offset-2 link-underline link-underline-opacity-0">I Forgot my password</a>
+                                    </p>
+                                </div>
+                                <div class="col-lg-4 col-md-12 col-sm-12 d-flex justify-content-center justify-content-md-end">
+                                    <a href="{{route('dashboard')}}">
+                                    <button type="submit" class="btn btn-danger">
+                                        {{ __('Login') }}
+                                    </button>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- end -->
                         </div>
                     </div>
                 </div>

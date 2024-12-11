@@ -35,7 +35,10 @@ Route::get('/validation', [DashboardController::class, 'validation'])
     ->name('validation');
 
 Route::get('/message', [DashboardController::class, 'message'])
-    ->name('message');   
+    ->name('message');
+
+Route::get('/account', [DashboardController::class, 'account'])
+    ->name('account');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

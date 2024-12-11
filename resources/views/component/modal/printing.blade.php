@@ -10,7 +10,6 @@
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <!-- Button 1 -->
                     <div class="col-sm-12 align-items-center mb-2">
                         <a href="{{ route('fieldSheet') }}">
                             <button type="button" class="btn btn-danger w-100">Print Field Sheet</button>
@@ -18,7 +17,6 @@
                     </div>
                 </div>
                 <div class="row">
-                    <!-- Button 2 -->
                     <div class="col-sm-12 align-items-center">
                         <a href="{{ route('taxDec') }}">
                             <button type="button" class="btn btn-danger w-100">Print Tax Declaration</button>

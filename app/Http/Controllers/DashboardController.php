@@ -111,4 +111,18 @@ class DashboardController extends Controller
 
         return view('search', compact('columns', 'data', 'options', 'title'));
     }
+
+    public function account()
+    {
+        $columns = ['Name','Account level'];
+        $title = 'Account manager';
+
+        $data = [
+            ['Name' => 'Sample 1', 'Account level' => 'Programmer'],
+            ['Name' => 'Sample 2', 'Account level' => 'Encoder'],
+            ['Name' => 'Sample 3', 'Account level' => 'Support'],
+        ];
+        
+        return view('component.cms.account', compact('title', 'columns', 'data'));
+    }
 }

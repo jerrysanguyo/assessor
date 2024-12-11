@@ -69,7 +69,7 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-header">Administrator Menu</li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="#" class="nav-link" data-toggle="modal" data-target="#adminModal">
                         <i class="nav-icon fas fa-user-shield"></i>
                         <p>Administrator Menu</p>
                     </a>
@@ -101,3 +101,4 @@
 @include('component.modal.report')
 @include('component.modal.tracking')
 @include('component.modal.message')
+@include('component.modal.administrator')
