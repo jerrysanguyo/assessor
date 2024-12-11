@@ -75,7 +75,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="#" class="nav-link" data-toggle="modal" data-target="#accountInfo">
                         <i class="nav-icon fas fa-user-edit"></i>
                         <p>Edit Account Info</p>
                     </a>
@@ -102,3 +102,4 @@
 @include('component.modal.tracking')
 @include('component.modal.message')
 @include('component.modal.administrator')
+@include('component.modal.accountInfo')
