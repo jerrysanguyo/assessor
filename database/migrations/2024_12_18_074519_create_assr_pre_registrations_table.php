@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('assr_pre_registrations', function (Blueprint $table) {
             $table->id();
-            $table->timestamps('CreationDate');
+            $table->timestamp('CreationDate')->nullable();
             $table->string('TDNo', 20);
             $table->string('TrackingNo', 30);
             $table->unsignedTinyInteger('Type');
