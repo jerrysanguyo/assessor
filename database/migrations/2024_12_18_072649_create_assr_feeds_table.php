@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('assr_feeds', function (Blueprint $table) {
+        Schema::create('assr_feed', function (Blueprint $table) {
             $table->id();
             $table->dateTime('Date');
             $table->string('Username', 30);
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('assr_feeds');
+        Schema::dropIfExists('assr_feed');
     }
 };

@@ -5,17 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Assr_messages extends Model
+class AssrTrackingLogs extends Model
 {
     use HasFactory;
     
-    protected $table = 'assr_messages';
+    protected $table = 'assr_tracking_log';
     protected $fillable = [
-        'ConID',
-        'Sender',
-        'Receiver',
-        'MSG',
         'Date',
-        'Opened'
+        'TrackingNo',
+        'TDNo',
+        'Username',
+        'Section',
+        'Branch'
     ];
 }

@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Assr_building extends Model
+class AssrBuilding extends Model
 {
     use HasFactory;
 
-    protected $table = 'assr_buildings';
+    protected $table = 'assr_building';
     protected $fillable = [
         'TDNo',
         'Area',

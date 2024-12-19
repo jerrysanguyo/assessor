@@ -5,17 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Assr_tracking_logs extends Model
+class AssrAutosuggest extends Model
 {
     use HasFactory;
     
-    protected $table = 'assr_tracking_logs';
+    protected $table = 'assr_autosuggest';
     protected $fillable = [
-        'Date',
-        'TrackingNo',
-        'TDNo',
+        'CreationDate',
+        'Suggestion',
         'Username',
-        'Section',
-        'Branch'
+        'Type'
     ];
 }

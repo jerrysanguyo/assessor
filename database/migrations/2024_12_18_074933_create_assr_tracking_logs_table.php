@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('assr_tracking_logs', function (Blueprint $table) {
+        Schema::create('assr_tracking_log', function (Blueprint $table) {
             $table->id();
             $table->dateTime('Date');
             $table->string('TrackingNo', 20);
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('assr_tracking_logs');
+        Schema::dropIfExists('assr_tracking_log');
     }
 };

@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Assr_account extends Model
+class AssrAccount extends Model
 {
     use HasFactory;
     
-    protected $table = 'assr_accounts';
+    protected $table = 'assr_account';
     protected $fillable = [
         'FirstName',
         'LastName',

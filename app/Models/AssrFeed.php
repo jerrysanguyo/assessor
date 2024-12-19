@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Assr_logs_user_login extends Model
+class AssrFeed extends Model
 {
     use HasFactory;
-    
-    protected $table = 'assr_logs_user_logins';
+
+    protected $table = 'assr_feed';
     protected $fillable = [
         'Date',
         'Username',

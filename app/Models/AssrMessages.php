@@ -5,15 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Assr_autosuggest extends Model
+class AssrMessages extends Model
 {
     use HasFactory;
     
-    protected $table = 'assr_autosuggests';
+    protected $table = 'assr_message';
     protected $fillable = [
-        'CreationDate',
-        'Suggestion',
-        'Username',
-        'Type'
+        'ConID',
+        'Sender',
+        'Receiver',
+        'MSG',
+        'Date',
+        'Opened'
     ];
 }

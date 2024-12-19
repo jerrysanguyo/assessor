@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('assr_pre_registrations', function (Blueprint $table) {
+        Schema::create('assr_pre_registration', function (Blueprint $table) {
             $table->id();
             $table->timestamp('CreationDate')->nullable();
             $table->string('TDNo', 20);
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('assr_pre_registrations');
+        Schema::dropIfExists('assr_pre_registration');
     }
 };

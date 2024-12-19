@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('assr_messages', function (Blueprint $table) {
+        Schema::create('assr_message', function (Blueprint $table) {
             $table->id();
             $table->string('ConID', 20);
             $table->string('Sender', 30);
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('assr_messages');
+        Schema::dropIfExists('assr_message');
     }
 };

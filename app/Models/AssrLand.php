@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Assr_land extends Model
+class AssrLand extends Model
 {
     use HasFactory;
     
-    protected $table = 'assr_lands';
+    protected $table = 'assr_land';
     protected $fillable = [
         'TDNo',
         'Class',

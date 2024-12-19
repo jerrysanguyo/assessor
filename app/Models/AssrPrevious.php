@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Assr_previous extends Model
+class AssrPrevious extends Model
 {
     use HasFactory;
     
-    protected $table = 'assr_previouses';
+    protected $table = 'assr_previous';
     protected $fillable = [
         'TDNumber',
         'prevTDNumber',

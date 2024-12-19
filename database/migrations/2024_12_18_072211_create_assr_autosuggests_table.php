@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('assr_autosuggests', function (Blueprint $table) {
+        Schema::create('assr_autosuggest', function (Blueprint $table) {
             $table->id();
             $table->timestamp('CreationDate');
             $table->string('Suggestion', 300);
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('assr_autosuggests');
+        Schema::dropIfExists('assr_autosuggest');
     }
 };

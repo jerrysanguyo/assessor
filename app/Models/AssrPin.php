@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Assr_pin extends Model
+class AssrPin extends Model
 {
     use HasFactory;
     
-    protected $table = 'assr_pins';
+    protected $table = 'assr_pin';
     protected $fillable = [
         'PIN',
         'Location',

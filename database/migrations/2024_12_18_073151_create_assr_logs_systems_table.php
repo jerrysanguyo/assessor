@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('assr_logs_systems', function (Blueprint $table) {
+        Schema::create('assr_logs_system', function (Blueprint $table) {
             $table->id();
             $table->dateTime('Date');
             $table->string('Username', 30);
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('assr_logs_systems');
+        Schema::dropIfExists('assr_logs_system');
     }
 };

@@ -5,20 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Assr_feed extends Model
+class AssrTrackingSeries extends Model
 {
     use HasFactory;
-
-    protected $table = 'assr_feeds';
+    
+    protected $table = 'assr_trackingseries';
     protected $fillable = [
         'Date',
-        'Username',
-        'Event',
-        'PCName',
-        'PCUsername',
-        'PCAddress',
-        'PCIPAddress',
         'DeptCode',
-        'Branch'
+        'Series'
     ];
 }

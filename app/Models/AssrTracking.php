@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Assr_tracking extends Model
+class AssrTracking extends Model
 {
     use HasFactory;
     
-    protected $table = 'assr_trackings';
+    protected $table = 'assr_tracking';
     protected $fillable = [
         'Date',
         'TrackingNo',
