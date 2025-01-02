@@ -8,14 +8,17 @@ use App\{
 use App\{
     Http\Controllers\Auth\LoginController,
 };
+use App\Http\Controllers\BarangayController;
+use App\Http\Controllers\AssrCreateAccountController;
+
 // Login and logout
-Route::get('/', [LoginController::class, 'index'])->name('Login'); 
-Route::post('/login', [LoginController::class, 'login'])->name('loginCheck'); 
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout'); 
+Route::get('/', [LoginController::class, 'index'])->name('Login');
+Route::post('/login', [LoginController::class, 'login'])->name('loginCheck');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])
     ->name('dashboard');
-    
+
 Route::get('/search', [DashboardController::class, 'search'])
     ->name('search');
 
@@ -42,9 +45,12 @@ Route::get('/message', [DashboardController::class, 'message'])
 
 Route::get('/account', [DashboardController::class, 'account'])
     ->name('account');
-    
-Route::get('/barangay', [DashboardController::class, 'barangay'])
-    ->name('barangay');
+
+Route::resource('/barangay', controller: BarangayController::class);
+Route::get('/user', [AssrCreateAccountController::class, 'index'])
+    ->name('user');
+Route::post('/user-create', [AssrCreateAccountController::class, 'store'])->name('user-create');
+
 
 Route::get('/transactionSetup', [DashboardController::class, 'transactionSetup'])
     ->name('transactionSetup');
