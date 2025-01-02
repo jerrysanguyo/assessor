@@ -3,20 +3,19 @@
 namespace App\Services\Auth;
 
 use App\Models\User;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\{
+    Support\Facades\Hash,
+    Support\Facades\Auth,
+};
 
 class LoginService
 {
-    public function login(array $credentials)
+    public function login(array $credentials): bool
     {
-        // Fetch user by username
-        $user = User::where('Username', $credentials['Username'])->first();
-
-        // Validate password
-        if ($user && Hash::check($credentials['Password'], $user->Password)) {
-            return $user; // Login successful
-        }
-
-        return null;
+        // Laravel's built-in Auth::attempt for authentication
+        return Auth::attempt([
+            'Username' => $credentials['Username'],
+            'Password' => $credentials['Password'],
+        ]);
     }
 }

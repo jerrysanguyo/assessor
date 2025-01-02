@@ -8,12 +8,10 @@ use App\{
 use App\{
     Http\Controllers\Auth\LoginController,
 };
-// Login UI
-Route::get('/', [LoginController::class, 'index'])
-    ->name('Login');
-
-Route::get('/login', [LoginController::class, 'login'])
-    ->name('loginCheck');
+// Login and logout
+Route::get('/', [LoginController::class, 'index'])->name('Login'); 
+Route::post('/login', [LoginController::class, 'login'])->name('loginCheck'); 
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout'); 
 
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])
     ->name('dashboard');

@@ -26,16 +26,20 @@ class LoginController extends Controller
         return view('welcome');
     }
 
-    public function login()
+    public function login(LoginRequest $request)
     {
         $credentials = $request->validated();
 
-        $user = $this->loginService->login($credentials);
-
-        if ($user) {
-            Auth::login($user);
-            return redirect()->route('home')->with('success', 'Login successful!');
+        if ($this->loginService->login($credentials)) {
+            return redirect()->route('dashboard')->with('success', 'Login successful!');
         }
+        
         return redirect()->route('Login')->withErrors(['loginError' => 'Invalid credentials.']);
-    }  
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('Login')->with('success', 'You have been logged out.');
+    }
 }
