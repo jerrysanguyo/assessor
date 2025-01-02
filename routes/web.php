@@ -5,10 +5,15 @@ use Illuminate\Support\Facades\Route;
 use App\{
     Http\Controllers\DashboardController,
 };
+use App\{
+    Http\Controllers\Auth\LoginController,
+};
+// Login UI
+Route::get('/', [LoginController::class, 'index'])
+    ->name('Login');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/login', [LoginController::class, 'login'])
+    ->name('loginCheck');
 
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])
     ->name('dashboard');
