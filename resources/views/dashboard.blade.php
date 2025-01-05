@@ -6,11 +6,12 @@
         <div class="row m-0">
             <div class="card card-dark card-outline col-md-12">
                 <div class="card-body">
-                    <form>
+                    <form action="{{ route('feedPost') }}" method="POST">
+                        @csrf
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <textarea class="form-control" rows="6" placeholder="Enter ..."></textarea>
+                                    <textarea class="form-control" rows="6" placeholder="Enter ..." name="Event"></textarea>
                                 </div>
                             </div>
                         </div>

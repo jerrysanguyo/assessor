@@ -15,6 +15,8 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])
     ->name('dashboard');
+Route::post('/dashboard/feedPost', [DashboardController::class, 'feedPost'])
+    ->name('feedPost');
     
 Route::get('/search', [DashboardController::class, 'search'])
     ->name('search');
