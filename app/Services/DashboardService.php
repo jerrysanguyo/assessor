@@ -6,7 +6,7 @@ use App\Model\AssrFeed;
 
 class dashboardService
 {
-    public function feedStore(): AssrFeed
+    public function feedStore(array $data): AssrFeed
     {
         $ipAddress = request()->ip();
         $pcName = gethostbyaddr($ipAddress);
@@ -15,7 +15,7 @@ class dashboardService
         AssrFeed::create([
             'Date' => now(),
             'Username' => auth()->user()->Username,
-            'Event' => 'User Login',
+            'Event' => $data['Event'],
             'PCName' => $pcName,
             'PCUsername' => get_current_user(), 
             'PCAddress' => $macAddress,
