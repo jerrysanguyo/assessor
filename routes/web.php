@@ -10,6 +10,8 @@ use App\{
 };
 use App\Http\Controllers\BarangayController;
 use App\Http\Controllers\AssrCreateAccountController;
+use App\Http\Controllers\AssrPurposeController;
+use App\Http\Controllers\AssrTransactionController;
 
 // Login and logout
 Route::get('/', [LoginController::class, 'index'])->name('Login');
@@ -49,7 +51,18 @@ Route::get('/account', [DashboardController::class, 'account'])
 Route::resource('/barangay', controller: BarangayController::class);
 Route::get('/user', [AssrCreateAccountController::class, 'index'])
     ->name('user');
+Route::get('/user-show/{id}', [AssrCreateAccountController::class, 'show'])->name('user-show');
 Route::post('/user-create', [AssrCreateAccountController::class, 'store'])->name('user-create');
+Route::put('/user-update/{id}', [AssrCreateAccountController::class, 'update'])->name('user-update');
+
+
+Route::get('/transaction-setup',[AssrTransactionController::class,'index']);
+Route::post('/transaction-create',[AssrTransactionController::class,'store'])->name('transaction-create');
+Route::delete('/transaction-delete/{id}',[AssrTransactionController::class,'destroy'])->name('transaction-delete');
+
+Route::get('/purpose-setup',[AssrPurposeController::class,'index']);
+Route::post('/purpose-create',[AssrPurposeController::class,'store'])->name('purpose-create');
+Route::delete('/purpose-delete/{id}',[AssrPurposeController::class,'destroy'])->name('purpose-delete');
 
 
 Route::get('/transactionSetup', [DashboardController::class, 'transactionSetup'])

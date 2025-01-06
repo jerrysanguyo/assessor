@@ -14,7 +14,10 @@ class DatabaseSeeder extends Seeder
     {
         $seeders = [
             AssrBarangaySeeder::class,
-            AssrUserLevelSeeder::class
+            AssrUserLevelSeeder::class,
+            AssrAccountSeeder::class,
+            AssrTransactionSeeder::class,
+            AssrPurposeSeeder::class
         ];
 
         $this->call($seeders);

@@ -13,17 +13,17 @@ return new class extends Migration
     {
         Schema::create('assr_account', function (Blueprint $table) {
             $table->id();
-            $table->string('FirstName', 30)->nullable();
-            $table->string('LastName', 30)->nullable();
-            $table->string('MiddleName', 30)->nullable();
+            $table->string('FirstName')->nullable();
+            $table->string('LastName')->nullable();
+            $table->string('MiddleName')->nullable();
             $table->date('Birthday')->nullable();
             $table->unsignedTinyInteger('Status')->nullable();
             $table->unsignedTinyInteger('HideBday')->nullable();
             $table->unsignedSmallInteger('TheBible')->nullable();
-            $table->string('Username', 30)->nullable();
-            $table->string('Password', 255)->nullable();
-            $table->string('Level', 30)->nullable();
-            $table->string('Email', 30)->nullable();
+            $table->string('Username')->nullable();
+            $table->string('Password')->nullable();
+            $table->string('Level')->nullable();
+            $table->string('Email')->nullable();
             $table->unsignedTinyInteger('SBV')->nullable();
             $table->unsignedTinyInteger('SilentMode')->nullable();
             $table->unsignedTinyInteger('SN')->nullable();

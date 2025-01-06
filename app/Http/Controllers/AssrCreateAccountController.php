@@ -3,40 +3,65 @@
 namespace App\Http\Controllers;
 
 use App\Models\AssrAccount;
-use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 use App\Http\Requests\StoreAssrAccountRequest;
+use App\Http\Requests\UpdateAssrAccountRequest;
 
 class AssrCreateAccountController extends Controller
 {
     public function index()
     {
-        return view('administrationMenu.user.index');
+        $assrAccount = AssrAccount::all();
+
+        return response()->json([
+            'message' => 'Assessor Account List',
+            'data' => $assrAccount
+        ], 200);
     }
-    public function store(StoreAssrAccountRequest $request)
+
+    public function store(StoreAssrAccountRequest $request): JsonResponse
     {
         $validated = $request->validated();
 
-        if ($request->has('Password')) {
-            $validated['Password'] = bcrypt($validated['Password']);
+        $validated['Password'] = bcrypt($validated['Password']);
+
+        $account = AssrAccount::create($validated);
+
+        return response()->json([
+            'message' => 'Account created successfully',
+            'data' => $account
+        ], 201);
+    }
+
+    public function show(string $id): JsonResponse
+    {
+        $account = AssrAccount::find($id);
+
+        if (!$account) {
+            return response()->json(['message' => 'Account not found'], 404);
         }
 
-        $account = new AssrAccount();
-        $account->FirstName = $validated['FirstName'];
-        $account->LastName = $validated['LastName'];
-        $account->MiddleName = $validated['MiddleName'];
-        $account->Birthday = $validated['Birthday'];
-        $account->Status = $validated['Status'];
-        $account->HideBday = $validated['HideBday'];
-        $account->TheBible = $validated['TheBible'];
-        $account->Username = $validated['Username'];
-        $account->Password = $validated['Password'];
-        $account->Level = $validated['Level'];
-        $account->Email = $validated['Email'];
-        $account->SBV = $validated['SBV'];
-        $account->SilentMode = $validated['SilentMode'];
-        $account->SN = $validated['SN'];
-        $account->save();
+        return response()->json([
+            'message' => 'Account fetched successfully',
+            'data' => $account
+        ], 200);
+    }
 
-        return response()->json(['message' => 'Account created successfully'], 201);
+    public function update(UpdateAssrAccountRequest $request, $id): JsonResponse
+    {
+        $validated = $request->validated();
+
+        $account = AssrAccount::find($id);
+
+        if (!$account) {
+            return response()->json(['message' => 'Account not found'], 404);
+        }
+
+        $account->update($validated);
+
+        return response()->json([
+            'message' => 'Account updated successfully',
+            'data' => $account
+        ], 200);
     }
 }
