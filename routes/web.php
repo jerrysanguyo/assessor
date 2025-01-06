@@ -55,6 +55,13 @@ Route::post('/user-create', [AssrCreateAccountController::class, 'store'])->name
 Route::get('/transactionSetup', [DashboardController::class, 'transactionSetup'])
     ->name('transactionSetup');
 
+Route::get('/generate-csrf-token', function () {
+    return response()->json(['csrf_token' => csrf_token()]);
+});
+
+
+
+
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
