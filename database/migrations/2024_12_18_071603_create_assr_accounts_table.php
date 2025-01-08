@@ -13,23 +13,24 @@ return new class extends Migration
     {
         Schema::create('assr_account', function (Blueprint $table) {
             $table->id();
-            $table->string('FirstName', 30);
-            $table->string('LastName', 30);
-            $table->string('MiddleName', 30);
-            $table->date('Birthday');
-            $table->unsignedTinyInteger('Status');
-            $table->unsignedTinyInteger('HideBday');
-            $table->unsignedSmallInteger('TheBible');
-            $table->string('Username', 30);
-            $table->string('Password', 50);
-            $table->string('Level', 30);
-            $table->string('Email', 30);
-            $table->unsignedTinyInteger('SBV');
-            $table->unsignedTinyInteger('SilentMode');
-            $table->unsignedTinyInteger('SN');
+            $table->string('FirstName')->nullable();
+            $table->string('LastName')->nullable();
+            $table->string('MiddleName')->nullable();
+            $table->date('Birthday')->nullable();
+            $table->unsignedTinyInteger('Status')->nullable();
+            $table->unsignedTinyInteger('HideBday')->nullable();
+            $table->unsignedSmallInteger('TheBible')->nullable();
+            $table->string('Username')->nullable();
+            $table->string('Password')->nullable();
+            $table->string('Level')->nullable();
+            $table->string('Email')->nullable();
+            $table->unsignedTinyInteger('SBV')->nullable();
+            $table->unsignedTinyInteger('SilentMode')->nullable();
+            $table->unsignedTinyInteger('SN')->nullable();
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.

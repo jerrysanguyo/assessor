@@ -47,7 +47,7 @@ class DashboardController extends Controller
         return view('search', compact('columns', 'data', 'options', 'title'));
     }
 
-    public function pin() 
+    public function pin()
     {
         $columns = ['No.', 'PIN', 'Location', 'Lot No.', 'Blk No.', 'Survey No.', 'Kind'];
         $options = ['No.', 'PIN', 'Location', 'Lot No.', 'Blk No.', 'Survey No.', 'Kind'];
@@ -142,24 +142,24 @@ class DashboardController extends Controller
             ['Name' => 'Sample 2', 'Account level' => 'Encoder'],
             ['Name' => 'Sample 3', 'Account level' => 'Support'],
         ];
-        
+
         return view('component.cms.account', compact('title', 'columns', 'data'));
     }
 
-    public function barangay()
-    {
-        $columns = ['Barangay', 'District', 'Code', 'Remarks'];
-        $title = 'Barangay setup';
-        $options = ['Barangay', 'District', 'Code'];
+    // public function barangay()
+    // {
+    //     $columns = ['Barangay', 'District', 'Code', 'Remarks'];
+    //     $title = 'Barangay setup';
+    //     $options = ['Barangay', 'District', 'Code'];
 
-        $data = [
-            ['Barangay' => 'Bagong Tanyag',             'District' => '02', 'Code' => '002','Remarks' => 'Old'],
-            ['Barangay' => 'Bagong Tanyag (proper)',    'District' => '02', 'Code' => '020', 'Remarks' => 'Old'],
-            ['Barangay' => 'Bagumbayan',                'District' => '01', 'Code' => '001', 'Remarks' => 'Old'],
-        ];
+    //     $data = [
+    //         ['Barangay' => 'Bagong Tanyag',             'District' => '02', 'Code' => '002','Remarks' => 'Old'],
+    //         ['Barangay' => 'Bagong Tanyag (proper)',    'District' => '02', 'Code' => '020', 'Remarks' => 'Old'],
+    //         ['Barangay' => 'Bagumbayan',                'District' => '01', 'Code' => '001', 'Remarks' => 'Old'],
+    //     ];
 
-        return view('search', compact( 'columns', 'title', 'data', 'options'));
-    }
+    //     return view('search', compact( 'columns', 'title', 'data', 'options'));
+    // }
 
     public function transactionSetup()
     {

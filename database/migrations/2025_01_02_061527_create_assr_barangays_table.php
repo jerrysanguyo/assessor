@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('assr_transaction', function (Blueprint $table) {
+        Schema::create('assr_barangays', function (Blueprint $table) {
             $table->id();
-            $table->text('Transaction');
-            $table->string('Code', 10)->nullable();
-            $table->double('TimesUsed')->nullable();
+            $table->string('name');
+            $table->enum('district', ['01', '02', 'EMBO']);
+            $table->string('code')->nullable();
+            $table->enum('remarks', ['Old', 'New'])->nullable();
             $table->timestamps();
         });
     }
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('assr_transaction');
+        Schema::dropIfExists('assr_barangays');
     }
 };

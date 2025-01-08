@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('assr_transaction', function (Blueprint $table) {
+        Schema::create('assr_purposes', function (Blueprint $table) {
             $table->id();
-            $table->text('Transaction');
+            $table->text('Purpose');
             $table->string('Code', 10)->nullable();
             $table->double('TimesUsed')->nullable();
             $table->timestamps();
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('assr_transaction');
+        Schema::dropIfExists('assr_purposes');
     }
 };
