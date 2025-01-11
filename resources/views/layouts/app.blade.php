@@ -46,6 +46,7 @@
     @else
 
         <body class="hold-transition layout-top-nav">
+        
 @endif
 <div class="wrapper">
     <!-- Navbar -->
@@ -74,7 +75,7 @@
         @include('layouts.components.sidebar')
     @endif
 
-    <div class="content-wrapper">
+    <div class="content-wrapper" style="background-color: #f4f6f9; background-image: url('images/background.gif'); background-size: cover; background-repeat: no-repeat;">
         <!-- Main Content -->
         <main class="col-lg-12">
             <div class="content-header">

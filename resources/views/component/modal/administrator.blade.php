@@ -18,7 +18,7 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-12 align-items-center mb-2">
-                        <a href="{{ route('barangay') }}">
+                        <a href="{{ route('barangay.index') }}">
                             <button type="button" class="btn btn-danger w-100">Barangay setup</button>
                         </a>
                     </div>
