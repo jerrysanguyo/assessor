@@ -29,7 +29,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('pin') }}" class="nav-link">
+                    <a href="{{ route('pin.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-key"></i>
                         <p>PIN</p>
                     </a>

@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
             AssrUserLevelSeeder::class,
             AssrAccountSeeder::class,
             AssrTransactionSeeder::class,
-            AssrPurposeSeeder::class
+            AssrPurposeSeeder::class,
+            AssrPinSeeder::class,
         ];
 
         $this->call($seeders);

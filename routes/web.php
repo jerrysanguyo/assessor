@@ -12,6 +12,7 @@ use App\Http\Controllers\BarangayController;
 use App\Http\Controllers\AssrCreateAccountController;
 use App\Http\Controllers\AssrPurposeController;
 use App\Http\Controllers\AssrTransactionController;
+use App\Http\Controllers\AssrPinController;
 
 // Login and logout
 Route::get('/', [LoginController::class, 'index'])->name('Login');
@@ -20,12 +21,16 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])
     ->name('dashboard');
+Route::post('/dashboard/feedPost', [DashboardController::class, 'feedPost'])
+    ->name('feedPost');
 
+Route::resource('/pin', AssrPinController::class);
+    
 Route::get('/search', [DashboardController::class, 'search'])
     ->name('search');
 
-Route::get('/pin', [DashboardController::class, 'pin'])
-    ->name('pin');
+// Route::get('/pin', [DashboardController::class, 'pin'])
+//     ->name('pin');
 
 Route::get('/transaction', [DashboardController::class, 'transaction'])
     ->name('transaction');
