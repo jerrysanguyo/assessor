@@ -5,11 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 
-class AssrAccount extends Model
+class AssrAccount extends Authenticatable
 {
-    use HasFactory;
-    
+    use HasApiTokens, HasFactory, Notifiable;
+
     protected $table = 'assr_account';
     protected $fillable = [
         'FirstName',
@@ -19,7 +21,7 @@ class AssrAccount extends Model
         'HideBday',
         'TheBible',
         'Username',
-        'Password',
+        'password',
         'MiddleName',
         'Level',
         'Email',
@@ -28,12 +30,23 @@ class AssrAccount extends Model
         'SN'
     ];
 
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
     protected $hidden = [
-        'Password', 'remember_token', 
+        'password',
+        'remember_token',
     ];
 
-    public function getAuthPassword()
-    {
-        return $this->Password; // Specify the password column
-    }
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+        'password' => 'hashed',
+    ];
 }

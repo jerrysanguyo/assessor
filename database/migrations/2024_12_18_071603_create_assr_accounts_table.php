@@ -21,7 +21,7 @@ return new class extends Migration
             $table->unsignedTinyInteger('HideBday')->nullable();
             $table->unsignedSmallInteger('TheBible')->nullable();
             $table->string('Username')->nullable();
-            $table->string('Password')->nullable();
+            $table->string('password');
             $table->string('Level')->nullable();
             $table->string('Email')->nullable();
             $table->unsignedTinyInteger('SBV')->nullable();
