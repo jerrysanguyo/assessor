@@ -18,4 +18,9 @@ class AssrPin extends Model
         'SurveyNo',
         'Kind'
     ];
+
+    public static function getAllPin()
+    {
+        return self::all();
+    }
 }

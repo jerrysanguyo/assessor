@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('PCName', 30);
             $table->string('PCUsername', 30);
             $table->string('PCAddress', 12);
-            $table->string('PCIPAddress', 66);
+            $table->string('PCIPAddress', 66)->nullable();
             $table->string('DeptCode', 10);
             $table->string('Branch', 12);
             $table->timestamps();

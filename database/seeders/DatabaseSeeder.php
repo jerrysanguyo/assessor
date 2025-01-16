@@ -13,11 +13,21 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $seeders = [
+            AssrAccountSeeder::class,
             AssrBarangaySeeder::class,
             AssrUserLevelSeeder::class,
-            AssrAccountSeeder::class,
             AssrTransactionSeeder::class,
-            AssrPurposeSeeder::class
+            AssrPurposeSeeder::class,
+            AssrFeedSeeder::class,
+            AssrPinSeeder::class,
+            AssrInformationSeeder::class,
+            AssrLandSeeder::class,
+            AssrLogsUserLoginSeeder::class,
+            AssrMachinerySeeder::class,
+            AssrPreRegistrationSeeder::class,
+            AssrPreviousSeeder::class,
+            AssrTrackingSeeder::class,
+            AssrTrackingSeriesSeeder::class,
         ];
 
         $this->call($seeders);

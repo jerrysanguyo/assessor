@@ -9,7 +9,7 @@ class AssrMachinery extends Model
 {
     use HasFactory;
     
-    protected $table = 'assr_machinery';
+    protected $table = 'assr_machinerie';
     protected $fillable = [
         'TDNo',
         'Description',

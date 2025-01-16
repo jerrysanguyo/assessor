@@ -3,28 +3,52 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Faker\Factory as Faker;
+use App\Models\AssrTransaction;
 
 class AssrTransactionSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
+    public function run(): void
     {
-        $faker = Faker::create();
-
-        for ($i = 0; $i < 50; $i++) {
-            DB::table('assr_transaction')->insert([
-                'Transaction' => $faker->sentence(),
-                'Code' => $faker->bothify('???###'),
-                'TimesUsed' => $faker->randomFloat(2, 1, 100),
-                'created_at' => now(), 
+        $transactions = [
+            [
+                'Transaction' => 'CHANGE OF BARANGAY AND CHANGE OF STATUS',
+                'Code' => 'CCS',
+                'TimesUsed' => 14,
+                'created_at' => now(),
                 'updated_at' => now(),
-            ]);
+            ],
+            [
+                'Transaction' => 'Consolidation',
+                'Code' => 'C',
+                'TimesUsed' => 58,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'Transaction' => 'House Re-assessment/Renovation',
+                'Code' => 'HRR',
+                'TimesUsed' => 0,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'Transaction' => 'Inclusion of PSD/PCS Number',
+                'Code' => 'IPN',
+                'TimesUsed' => 0,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'Transaction' => 'INCLUSION OF TITLE NUMBER AND CHANGE OF BARANGAY AS PER ORD. 67 S 2008',
+                'Code' => 'ITN',
+                'TimesUsed' => 17,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+        ];
+
+        foreach ($transactions as $transaction) {
+            AssrTransaction::create($transaction);
         }
     }
 }

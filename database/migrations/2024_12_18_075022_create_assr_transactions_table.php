@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('assr_transaction', function (Blueprint $table) {
             $table->id();
-            $table->text('Transaction');
+            $table->text('Transaction')->nullable();
             $table->string('Code', 10)->nullable();
             $table->double('TimesUsed')->nullable();
             $table->timestamps();
