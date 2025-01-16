@@ -19,9 +19,9 @@ return new class extends Migration
             $table->string('Applicant', 50);
             $table->string('Address', 50);
             $table->string('Representative', 50);
-            $table->unsignedSmallInteger('NoOfTransaction');
-            $table->unsignedSmallInteger('NoUsed');
-            $table->string('ContactNo', 20);
+            $table->smallInteger('NoOfTransaction'); // Changed to smallInteger
+            $table->smallInteger('NoUsed'); // Changed to smallInteger
+            $table->string('ContactNo', 20)->nullable();
             $table->string('Username', 30);
             $table->string('DeptCode', 12);
             $table->timestamps();

@@ -15,12 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('TDNo', 100);
             $table->string('Description', 100);
-            $table->string('Date_Of_Operation', 100);
+            $table->string('Date_Of_Operation', 100)->nullable();
             $table->double('Replacement_Cost');
             $table->double('Depreciation');
             $table->double('Market_Value');
-            $table->string('ESL', 100);
-            $table->string('RoAD', 100);
+            $table->string('ESL', 100)->nullable();
+            $table->string('RoAD', 100)->nullable();
             $table->string('AU', 20);
             $table->double('AL');
             $table->double('AV');

@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
             $table->timestamp('CreationDate')->nullable();
             $table->string('TDNo', 20);
-            $table->string('TrackingNo', 30);
+            $table->string('TrackingNo', 30)->nullable();
             $table->unsignedTinyInteger('Type');
-            $table->string('Username', 30);
-            $table->string('Transaction', 300);
-            $table->string('TCN', 20);
+            $table->string('Username', 30)->nullable();
+            $table->string('Transaction', 300)->nullable();
+            $table->string('TCN', 20)->nullable();
             $table->timestamps();
         });
     }

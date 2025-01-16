@@ -22,9 +22,9 @@ return new class extends Migration
             $table->string('AU', 30);
             $table->double('AL');
             $table->double('AV');
-            $table->string('Description', 200);
+            $table->string('Description', 200)->nullable();
             $table->unsignedTinyInteger('Exempt');
-            $table->string('SubClass', 20);
+            $table->string('SubClass', 20)->nullable();
             $table->timestamps();
         });
     }

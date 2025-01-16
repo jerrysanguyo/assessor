@@ -9,7 +9,7 @@ class AssrTrackingSeries extends Model
 {
     use HasFactory;
     
-    protected $table = 'assr_trackingseries';
+    protected $table = 'assr_tracking_series';
     protected $fillable = [
         'Date',
         'DeptCode',
