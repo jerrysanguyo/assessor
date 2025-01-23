@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $seeders = [
+            RolesAndPermissions::class,
             AssrAccountSeeder::class,
             AssrBarangaySeeder::class,
             AssrUserLevelSeeder::class,

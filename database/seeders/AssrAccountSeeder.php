@@ -27,7 +27,7 @@ class AssrAccountSeeder extends Seeder
                 'Status' => 1,
                 'HideBday' => 0,
                 'TheBible' => $faker->randomElement([10, 20, 30, 40]),
-                'Username' => 'Kai' . Str::random(3),
+                'Username' => 'example',
                 'password' => Hash::make('password'),
                 'Level' => 'Support',
                 'Email' => $faker->unique()->safeEmail(),

@@ -2,54 +2,51 @@
 
 namespace App\Services;
 
-use App\Models\AssrPin;
+use App\Repositories\AssrPinRepository;
 
 class AssrPinService
 {
-    public function pinStore(array $data): AssrPin
-    {
-        return AssrPin::create([
-            'PIN'       => $data['PIN'],
-            'Location'  => $data['Location'],
-            'LotNo'     => $data['LotNo'],
-            'BlkNo'     => $data['BlkNo'],
-            'SurveyNo'  => $data['SurveyNo'],
-            'Kind'      => $data['Kind'],
-        ]);
-    }
-    
-    public function pinUpdate(array $data, $pin): AssrPin
-    {
-        $record = $this->pinIdFindOrFail($pin);
-        $record->update([
-            'PIN'       => $data['PIN'],
-            'Location'  => $data['Location'],
-            'LotNo'     => $data['LotNo'],
-            'BlkNo'     => $data['BlkNo'],
-            'SurveyNo'  => $data['SurveyNo'],
-            'Kind'      => $data['Kind'],
-        ]);
+    protected $repository;
 
-        return $record;
-    }
-    
-    public function pinDestroy($pin): bool
+    public function __construct(AssrPinRepository $repository)
     {
-        $record = $this->pinIdFindOrFail($pin);
-    
-        if ($record) {
-            return (bool) $record->delete();
-        }
-    
-        return false;
+        $this->repository = $repository;
     }
 
-    public function pinIdFindOrFail($pin): AssrPin
+    public function getAllPins()
     {
-        if ($pin instanceof AssrPin) {
-            return $pin;
-        }
+        return $this->repository->getAll();
+    }
 
-        return AssrPin::findOrFail($pin); 
+    /**
+     * Create a new pin record.
+     */
+    public function createPin(array $data)
+    {
+        return $this->repository->create($data);
+    }
+
+    /**
+     * Retrieve a single pin by ID.
+     */
+    public function getPinById($id)
+    {
+        return $this->repository->findById($id);
+    }
+
+    /**
+     * Update a pin record by ID.
+     */
+    public function updatePin($id, array $data)
+    {
+        return $this->repository->update($id, $data);
+    }
+
+    /**
+     * Delete a pin record by ID.
+     */
+    public function deletePin($id)
+    {
+        return $this->repository->delete($id);
     }
 }

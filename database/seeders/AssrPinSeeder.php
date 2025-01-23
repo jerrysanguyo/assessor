@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\AssrPin;
 
@@ -10,51 +9,30 @@ class AssrPinSeeder extends Seeder
 {
     public function run(): void
     {
-        $pin = [
-            [
-                'PIN' => '120-02-019-009-017-2023',
-                'Location' => '',
-                'LotNo' => '',
-                'BlkNo' => '',
-                'SurveyNo' => '',
-                'Kind' => 'Machinery',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'PIN' => '120-01-0003-038-047',
-                'Location' => '',
-                'LotNo' => '7',
-                'BlkNo' => '71',
-                'SurveyNo' => '',
-                'Kind' => 'Land',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'PIN' => '120-01-009-032-027',
-                'Location' => '',
-                'LotNo' => '14',
-                'BlkNo' => '6',
-                'SurveyNo' => 'PCS-13-000484',
-                'Kind' => 'Land',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'PIN' => '120-01-011-035-013-1001-378',
-                'Location' => '',
-                'LotNo' => '',
-                'BlkNo' => '',
-                'SurveyNo' => '',
-                'Kind' => 'Building',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-        ];
+        $kinds = ['Land', 'Machinery', 'Building', 'Vehicle', 'Equipment'];
+        $pins = [];
 
-        foreach ($pin as $pins) {
-            AssrPin::create($pins);
+        for ($i = 0; $i < 400; $i++) {
+            $pins[] = [
+                'PIN' => sprintf(
+                    '%03d-%02d-%03d-%03d-%02d-%04d',
+                    rand(100, 999),
+                    rand(10, 99),
+                    rand(100, 999),
+                    rand(100, 999),
+                    rand(10, 99),
+                    rand(1000, 9999)
+                ),
+                'Location' => fake()->city(),
+                'LotNo' => rand(1, 100),
+                'BlkNo' => rand(1, 50),
+                'SurveyNo' => 'PCS-' . rand(10, 99) . '-' . rand(100000, 999999),
+                'Kind' => $kinds[array_rand($kinds)],
+                'created_at' => now(),
+                'updated_at' => now(),
+            ];
         }
+
+        AssrPin::insert($pins);
     }
 }

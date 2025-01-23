@@ -2,73 +2,71 @@
 
 namespace App\Http\Controllers\Assessor\Search;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Exports\AssrPinExport;
+use Barryvdh\DomPDF\Facade\Pdf;
+use App\Services\AssrPinService;
+use App\Http\Controllers\Controller;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Requests\Assessor\PinStoreRequest;
+use App\Http\Requests\Assessor\PinUpdateRequest;
+use Yajra\DataTables\Facades\DataTables;
 
 class SearchController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        $columns = ['TDN No', 'PIN', 'Name of Owner', 'Location of Property', 'Status'];
-        $options = ['TDN No', 'PIN', 'Name of Owner', 'Location of Property', 'Status'];
-        $title = 'Search';
+    protected $service;
 
-        $data = [
-            ['TDN No' => '12345', 'PIN' => '67890', 'Name of Owner' => 'John Doe', 'Location of Property' => 'Location 1', 'Status' => 'Active'],
-            ['TDN No' => '67890', 'PIN' => '54321', 'Name of Owner' => 'Jane Doe', 'Location of Property' => 'Location 2', 'Status' => 'Inactive'],
-            ['TDN No' => '11223', 'PIN' => '44556', 'Name of Owner' => 'John Smith', 'Location of Property' => 'Location 3', 'Status' => 'Pending'],
-        ];
-        return view('assessor.search.index', compact('columns', 'data', 'options', 'title'));
+    public function __construct(AssrPinService $service)
+    {
+        $this->service = $service;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function index(Request $request)
     {
-        //
+        $columns = ['PIN', 'Location', 'LotNo', 'BlkNo', 'SurveyNo', 'Kind'];
+        $data = $this->service->getAllPins();
+        return view('assessor.search.index', compact('columns', 'data'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function store(PinStoreRequest $request)
     {
-        //
+        try {
+            $validated = $request->validated();
+            $this->service->createPin($validated);
+            return response()->json(['success' => true, 'message' => 'Record added successfully!'], 201);
+        } catch (\Exception $e) {
+            return response()->json(['success' => false, 'message' => $e->getMessage()], 500);
+        }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function edit($id)
     {
-        //
+        try {
+            $record = $this->service->getPinById($id);
+            return response()->json(['success' => true, 'data' => $record], 200);
+        } catch (\Exception $e) {
+            return response()->json(['success' => false, 'message' => 'Record not found.'], 404);
+        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function update(PinUpdateRequest $request, $id)
     {
-        //
+        try {
+            $validated = $request->validated();
+            $this->service->updatePin($id, $validated);
+            return response()->json(['success' => true, 'message' => 'Record updated successfully!'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['success' => false, 'message' => $e->getMessage()], 500);
+        }
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function destroy($id)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        try {
+            $this->service->deletePin($id);
+            return response()->json(['success' => true, 'message' => 'Record deleted successfully!'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['success' => false, 'message' => $e->getMessage()], 500);
+        }
     }
 }

@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('assr_pin', function (Blueprint $table) {
             $table->id();
-            $table->string('PIN', 50);
-            $table->string('Location', 500)->nullable();
-            $table->string('LotNo', 50)->nullable();
-            $table->string('BlkNo', 50)->nullable();
-            $table->string('SurveyNo', 50)->nullable();
-            $table->string('Kind', 50);
+            $table->string('PIN');
+            $table->string('Location')->nullable();
+            $table->string('LotNo')->nullable();
+            $table->string('BlkNo')->nullable();
+            $table->string('SurveyNo')->nullable();
+            $table->string('Kind');
             $table->timestamps();
         });
     }

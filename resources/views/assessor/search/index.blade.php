@@ -5,13 +5,13 @@
         <div class="container">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0"> Top Navigation <small>Example 3.0</small></h1>
+                    <h1 class="m-0"> PIN </h1>
+                    {{-- <small>Version 3.0</small> --}}
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item"><a href="#">Layout</a></li>
-                        <li class="breadcrumb-item active">Top Navigation</li>
+                        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                        <li class="breadcrumb-item active">Pin</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -22,59 +22,57 @@
     <!-- Main content -->
     <div class="content">
         <div class="container">
+
+            @include('assessor.search.modal.create')
+
+            @include('assessor.search.modal.update')
+
             <div class="row">
+                <!-- Table Card -->
                 <div class="col-lg-12">
-                    <div class="card">
+                    <div class="alert-container"></div>
+                    <div class="card card-dark card-outline">
                         <div class="card-body">
-                            <form action="" method="POST">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <select class="custom-select">
-
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-12">
-                    <div class="card">
-                        <div class="card-body">
-
-                            <table id="example2" class="table table-striped">
-                                <thead>
+                            <div class="d-flex justify-content-between mb-3">
+                                <h5 class="card-title">Records</h5>
+                                <button class="btn btn-primary" type="button" id="create-button" data-toggle="modal"
+                                    data-target="#modal-create-pin">
+                                    <i class="fas fa-plus mr-1"></i> Create
+                                </button>
+                            </div>
+                            <!-- Table -->
+                            <table id="table-container" class="table-borderless table-hover table" style="width:100%;">
+                                <thead class="bg-light">
                                     <tr>
                                         @foreach ($columns as $column)
-                                            <th>{{ $column }}</th>
+                                            <th class="export" style="white-space: nowrap;">{{ $column }}</th>
                                         @endforeach
-                                        <th>Action</th>
+                                        <th style="width: 80px; text-align: center;">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($data as $row)
                                         <tr>
-                                            @foreach ($columns as $key => $column)
-                                                <td>{{ $row[$column] ?? '' }}</td>
-                                            @endforeach
-                                            <td>
+                                            <td style="white-space: nowrap;">{{ $row?->PIN }}</td>
+                                            <td>{{ $row?->Location }}</td>
+                                            <td style="text-align: center;">{{ $row?->LotNo }}</td>
+                                            <td style="text-align: center;">{{ $row?->BlkNo }}</td>
+                                            <td style="white-space: nowrap;">{{ $row?->SurveyNo }}</td>
+                                            <td>{{ $row?->Kind }}</td>
+                                            <td style="text-align: center;">
                                                 <div class="dropdown">
-                                                    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="actionMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button"
+                                                        data-toggle="dropdown">
                                                         <i class="fas fa-ellipsis-h"></i>
                                                     </button>
-                                                    <div class="dropdown-menu" aria-labelledby="actionMenu">
-                                                        <a class="dropdown-item text-info" href="#">
+                                                    <div class="dropdown-menu">
+                                                        <a class="dropdown-item text-info edit-record-btn"
+                                                            data-toggle="modal" data-target="#modal-edit-pin"
+                                                            data-id="{{ $row->id }}">
                                                             <i class="fas fa-pen"></i> Edit
                                                         </a>
-                                                        <a class="dropdown-item text-danger" href="#">
+                                                        <a class="dropdown-item text-danger delete-item"
+                                                            href="{{ route('search.destroy', $row->id) }}">
                                                             <i class="fas fa-trash"></i> Delete
                                                         </a>
                                                     </div>
@@ -83,23 +81,95 @@
                                         </tr>
                                     @endforeach
                                 </tbody>
+                                <tfoot>
+                                    <tr>
+                                        @foreach ($columns as $column)
+                                            <th class="search">{{ $column }}</th>
+                                        @endforeach
+                                        <th>Action</th>
+                                    </tr>
+                                </tfoot>
                             </table>
-                            @if (Request::is('field_sheet') || Request::is('tax_dec'))
-                                <div class="float-right mt-3">
-                                    <button class="btn btn-danger"><i class="fa-solid fa-print"></i> Print all</button>
-                                </div>
-                            @endif
-                            @if (Request::is('validation'))
-                                <div class="float-right mt-3">
-                                    <button class="btn btn-danger"><i class="fa-solid fa-check"></i> Validate all</button>
-                                </div>
-                            @endif
+
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- /.row -->
-        </div><!-- /.container-fluid -->
+        </div>
     </div>
     <!-- /.content -->
 @endsection
+@push('scripts')
+    @once
+        <script>
+            $('#table-container tfoot th.search').each(function() {
+                var title = $(this).text();
+                $(this).html('<input type="text" placeholder="Search ' + title +
+                    '" class="search-input form-control form-control-sm"/>');
+            });
+            var table = $('#table-container').DataTable({
+                "dom": "<'row justify-content-center'<'col-sm-3'l><'col-sm-6 text-center'B><'col-sm-3'f>>" +
+                    "<'row'<'col-sm-12'tr>>" +
+                    "<'row justify-content-between'<'col-sm-5'i><'col-sm-7'p>>",
+                "responsive": true,
+                "searching": true,
+                "paging": true,
+                "buttons": [{
+                        extend: 'copyHtml5',
+                        className: 'btn btn-outline-secondary btn-sm',
+                        text: '<i class="fas fa-clipboard"></i> Copy',
+                        exportOptions: {
+                            columns: '.export'
+                        }
+                    },
+                    {
+                        extend: 'csvHtml5',
+                        className: 'btn btn-outline-primary btn-sm',
+                        text: '<i class="far fa-file-csv"></i> CSV',
+                        exportOptions: {
+                            columns: '.export'
+                        }
+                    },
+                    {
+                        extend: 'excelHtml5',
+                        className: 'btn btn-outline-success btn-sm',
+                        text: '<i class="far fa-file-excel"></i> Excel',
+                        exportOptions: {
+                            columns: '.export'
+                        }
+                    },
+                    {
+                        extend: 'pdfHtml5',
+                        className: 'btn btn-outline-danger btn-sm',
+                        text: '<i class="far fa-file-pdf"></i> PDF',
+                        exportOptions: {
+                            columns: '.export'
+                        }
+                    },
+                    {
+                        extend: 'print',
+                        className: 'btn btn-outline-dark btn-sm',
+                        text: '<i class="fas fa-print"></i> Print',
+                        exportOptions: {
+                            columns: '.export'
+                        }
+                    }
+                ],
+                initComplete: function() {
+                    this.api().columns().every(function() {
+                        var that = this;
+
+                        $('input', this.footer()).on('keyup change clear', function() {
+                            if (that.search() !== this.value) {
+                                that
+                                    .search(this.value)
+                                    .draw();
+                            }
+                        });
+                    });
+                }
+            });
+        </script>
+        <script src="{{ asset('custom/javascript/pin.js') }}"></script>
+    @endonce
+@endpush

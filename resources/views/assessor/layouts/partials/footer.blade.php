@@ -1,9 +1,8 @@
 <footer class="main-footer">
     <!-- To the right -->
     <div class="d-none d-sm-inline float-right">
-        Anything you want
+        {{ date('Y') }}
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; {{ date('Y') }} <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights
-    reserved.
+    <strong>Powered By: <a href="https://adminlte.io">Information Technology</a>.</strong>
 </footer>

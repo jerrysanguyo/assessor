@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class AssrPin extends Model
 {
     use HasFactory;
-    
+
     protected $table = 'assr_pin';
     protected $fillable = [
         'PIN',
